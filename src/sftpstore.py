@@ -28,6 +28,8 @@ class SftpStore(datastore.DataStore):
             self.ftp.mkdir(path)
 
     def store(self, file):
+        self.time = None
+        
         if self.exists(file):
             self.remove(file)
         elif not self.exists(os.path.dirname(file)):

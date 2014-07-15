@@ -32,6 +32,8 @@ class FtpStore(datastore.DataStore):
             self.ftp.mkd(path)
 
     def store(self, file):
+        self.time = None
+        
         if self.exists(file):
             self.remove(file)
         elif not self.exists(os.path.dirname(file)):
